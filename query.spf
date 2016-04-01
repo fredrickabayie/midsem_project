@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>chairgap</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>name</key>
+			<string>chairgap@127.0.0.1</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>chairgap</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>latin1</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJX
+			TlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAF
+			gAdUdHlwZVRyb3dzXxAdU2VsZWN0aW9uRGV0YWlsVHlwZU5TSW5k
+			ZXhTZXTSFwsYGVxOU1JhbmdlQ291bnQQAIAG0hscHR5aJGNsYXNz
+			bmFtZVgkY2xhc3Nlc1pOU0luZGV4U2V0oh8gWk5TSW5kZXhTZXRY
+			TlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiBfEA9OU0tleWVk
+			QXJjaGl2ZXLRJidUZGF0YYABAAgAEQAaACMALQAyADcAQABGAE0A
+			VQBgAGcAagBsAG4AcQBzAHUAdwB8AIEAoQCmALMAtQC3ALwAxwDQ
+			ANsA3gDpAPIA9wEEAQcBGQEcASEAAAAAAAACAQAAAAAAAAAoAAAA
+			AAAAAAAAAAAAAAABIw==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {759, 614}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>
+CREATE TABLE `chairs` (
+  `chair_id` int(5) NOT NULL,
+  `chair_name` varchar(50) NOT NULL,
+  `chair_type` int(2) NOT NULL,
+  `year` int(4) NOT NULL,
+  `manufacturer_id` int(4) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `chairs`
+  ADD PRIMARY KEY (`chair_id`),
+  ADD KEY `name` (`chair_name`),
+  ADD KEY `winery` (`manufacturer_id`);
+  
+INSERT INTO `chairs` (`chair_id`, `chair_name`, `chair_type`, `year`, `manufacturer_id`, `description`, `image`)
+VALUES (1, 'Parsons', 4, 1997, 2, NULL, NULL), (2, 'Geo Brights Parsons', 4, 2000, 1, NULL, NULL), (3, 'Audrey', 4, 1999, 5, NULL, NULL), (4, 'Aprilia Parsons', 4, 1957, 2, NULL, NULL), (5, 'Bersum Dining', 4, 1894, 3, NULL, NULL), (6, 'Braeburn Parsons', 4, 2005, 1, NULL, NULL), (7, 'Winthrop Parsons', 4, 1943, 2, NULL, NULL), (8, 'Yates Tufted Side', 4, 2011, 5, NULL, NULL), (9, 'Republic Parsons', 4, 1999, 2, NULL, NULL), (10, 'Kinfine Classic Parsons', 4, 2002, 3, NULL, NULL),
+
+(11, 'Cassandra Side', 3, 1997, 2, NULL, NULL), (12, 'Azzo Shell Side', 3, 2000, 1, NULL, NULL), (13, 'Entreat Side', 3, 1999, 5, NULL, NULL), (14, 'Baxton Studio Birch Sapling', 3, 1957, 2, NULL, NULL), (15, 'Wise Side', 3, 1894, 3, NULL, NULL), (16, 'Marabella Side', 3, 2005, 1, NULL, NULL), (17, 'Banks Arm', 3, 1943, 2, NULL, NULL), (18, 'Path Side', 3, 2011, 5, NULL, NULL), (19, 'Mid Century Modern', 3, 1999, 2, NULL, NULL), (20, 'Louis Ghost Arm', 3, 2002, 3, NULL, NULL),
+
+(21, 'Stacking Side', 2, 1997, 2, NULL, NULL), (22, 'Durango Side', 2, 2000, 1, NULL, NULL), (23, 'Knunkle Stackable', 2, 1999, 5, NULL, NULL), (24, 'Bond Side', 2, 1957, 2, NULL, NULL), (25, 'Bistro Side', 2, 1894, 3, NULL, NULL), (26, 'Metropolis Side', 2, 2005, 1, NULL, NULL), (27, 'Oregon Side', 2, 1943, 2, NULL, NULL), (28, 'Industrial Side', 2, 2011, 5, NULL, NULL), (29, 'Bentley Side', 2, 1999, 2, NULL, NULL), (30, 'Leo Side', 2, 2002, 3, NULL, NULL),
+
+(31, 'Mestler Side', 1, 1997, 2, NULL, NULL), (32, 'Dempsey Side', 1, 2000, 1, NULL, NULL), (33, 'Bramblecrest Side', 1, 1999, 5, NULL, NULL), (34, 'Charlotte Side', 1, 1957, 2, NULL, NULL), (35, 'Sawyer', 1, 1894, 3, NULL, NULL), (36, 'Vintage', 1, 2005, 1, NULL, NULL), (37, 'Sally', 1, 1943, 2, NULL, NULL), (38, 'Andrews Arrow', 1, 2011, 5, NULL, NULL), (39, 'Simplicity', 1, 1999, 2, NULL, NULL), (40, 'Somerset', 1, 2002, 3, NULL, NULL);
+
+
+
+
+CREATE TABLE `chair_types` (
+  `chair_type_id` int(2) NOT NULL,
+  `chair_type` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `chair_types`
+  ADD PRIMARY KEY (`chair_type_id`);
+
+INSERT INTO `chair_types` (`chair_type_id`, `chair_type`)
+VALUES (1, 'Wood'), (2, 'Metal'), (3, 'Plastic'), (4, 'Upholstered');
+
+
+
+
+CREATE TABLE `manufacturers` (
+  `manufacturer_id` int(4) NOT NULL,
+  `manufacturer_name` varchar(100) NOT NULL,
+  `region_id` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `manufacturers`
+  ADD PRIMARY KEY (`manufacturer_id`),
+  ADD KEY `name` (`manufacturer_name`),
+  ADD KEY `region` (`region_id`);
+
+INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_name`, `region_id`)
+VALUES (1, 'Liberty Furniture', 2), (2, 'Modway', 5), (3, 'Ashley', 4), (4, 'Wildon', 3), (5, 'Hooker', 1);
+
+
+
+
+CREATE TABLE `regions` (
+  `region_id` int(4) NOT NULL,
+  `region_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `regions`
+  ADD PRIMARY KEY (`region_id`),
+  ADD KEY `region` (`region_name`);
+
+INSERT INTO `regions` (`region_id`, `region_name`) 
+VALUES (1, 'Eastern'), (2, 'Greater'), (3, 'Northern'), (4, 'Ashanti'), (5, 'Western');
+
+
+
+
+CREATE TABLE `inventories` (
+  `chair_id` int(5) NOT NULL,
+  `inventory_id` int(3) NOT NULL,
+  `on_hand` int(5) NOT NULL,
+  `cost` decimal(5,2) NOT NULL,
+  `date_added` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `inventories`
+  ADD PRIMARY KEY (`chair_id`,`inventory_id`);
+
+INSERT INTO `inventories` (`chair_id`, `inventory_id`, `on_hand`, `cost`)
+VALUES (1, 1, 56, '17.99'), (2, 2, 95, '33.99'), (3, 3, 24, '21.99'), (4, 4, 11, '121.99'), (5, 5, 43, '498.99'),
+(6, 6, 10, '321.99'), (7, 7, 111, '241.99'), (8, 8, 40, '32.99'), (9, 9, 61, '66.99'), (10, 10, 100, '98.99'),
+(11, 11, 56, '17.99'), (12, 12, 95, '33.99'), (13, 13, 24, '21.99'), (14, 14, 11, '121.99'), (15, 15, 43, '498.99'),
+(16, 16, 10, '321.99'), (17, 17, 111, '241.99'), (18, 18, 40, '32.99'), (19, 19, 61, '66.99'), (20, 20, 100, '98.99'),
+(21, 21, 56, '17.99'), (22, 22, 95, '33.99'), (23, 23, 24, '21.99'), (24, 24, 11, '121.99'), (25, 25, 43, '498.99'),
+(26, 26, 10, '321.99'), (27, 27, 111, '241.99'), (28, 28, 40, '32.99'), (29, 29, 61, '66.99'), (30, 30, 100, '98.99'),
+(31, 31, 56, '17.99'), (32, 32, 95, '33.99'), (33, 33, 24, '21.99'), (34, 34, 11, '121.99'), (35, 35, 43, '498.99'),
+(36, 36, 10, '321.99'), (37, 37, 111, '241.99'), (38, 38, 40, '32.99'), (39, 39, 61, '66.99'), (40, 40, 100, '98.99');
+
+
+
+
+CREATE TABLE `titles` (
+  `title_id` int(2) NOT NULL,
+  `title` char(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `titles`
+  ADD PRIMARY KEY (`title_id`);
+
+INSERT INTO `titles` (`title_id`, `title`)
+VALUES (1, 'Mr'), (2, 'Mrs');
+
+
+
+
+CREATE TABLE `customers` (
+  `cust_id` int(5) NOT NULL,
+  `surname` varchar(50) DEFAULT NULL,
+  `firstname` varchar(50) DEFAULT NULL,
+  `title_id` int(3) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`cust_id`);
+  
+INSERT INTO `customers` (`cust_id`, `surname`, `firstname`, `title_id`, `address`, `phone`, `email`)
+VALUES (1, 'Abayie', 'Fredrick', 1, '1st University Avenue Berekuso', '0209339957', 'fredrick.abayie@ashesi.edu.gh'), (2, 'Asenso', 'Luciana', 2, '1st University Avenue Berekuso', '0254059957', 'fredrick.abayie@ashesi.edu.gh');
+
+
+
+
+</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>215</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>INSERT INTO `inventories` (`chair_id`, `inventory_id`, `on_hand`, `cost`)
+VALUES (1, 1, 56, '17.99'), (2, 2, 95, '33.99'), (3, 3, 24, '21.99'), (4, 4, 11, '121.99'), (5, 5, 43, '498.99'),
+(6, 6, 10, '321.99'), (7, 7, 111, '241.99'), (8, 8, 40, '32.99'), (9, 9, 61, '66.99'), (10, 10, 100, '98.99'),
+(11, 11, 56, '17.99'), (12, 12, 95, '33.99'), (13, 13, 24, '21.99'), (14, 14, 11, '121.99'), (15, 15, 43, '498.99'),
+(16, 16, 10, '321.99'), (17, 17, 111, '241.99'), (18, 18, 40, '32.99'), (19, 19, 61, '66.99'), (20, 20, 100, '98.99'),
+(21, 21, 56, '17.99'), (22, 22, 95, '33.99'), (23, 23, 24, '21.99'), (24, 24, 11, '121.99'), (25, 25, 43, '498.99'),
+(26, 26, 10, '321.99'), (27, 27, 111, '241.99'), (28, 28, 40, '32.99'), (29, 29, 61, '66.99'), (30, 30, 100, '98.99'),
+(31, 31, 56, '17.99'), (32, 32, 95, '33.99'), (33, 33, 24, '21.99'), (34, 34, 11, '121.99'), (35, 35, 43, '498.99'),
+(36, 36, 10, '321.99'), (37, 37, 111, '241.99'), (38, 38, 40, '32.99'), (39, 39, 61, '66.99'), (40, 40, 100, '98.99')</string>
+		<string>ALTER TABLE `inventories`
+  ADD PRIMARY KEY (`chair_id`,`inventory_id`)</string>
+		<string>CREATE TABLE `inventories` (
+  `chair_id` int(5) NOT NULL,
+  `inventory_id` int(3) NOT NULL,
+  `on_hand` int(5) NOT NULL,
+  `cost` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</string>
+		<string>CREATE TABLE `inventories` (
+  `chair_id` int(5) NOT NULL,
+  `inventory_id` int(3) NOT NULL,
+  `on_hand` int(5) NOT NULL,
+  `cost` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ALTER TABLE `inventories`
+  ADD PRIMARY KEY (`chair_id`,`inventory_id`);
+INSERT INTO `inventories` (`chair_id`, `inventory_id`, `on_hand`, `cost`)
+VALUES (1, 1, 56, '17.99'), (2, 2, 95, '33.99'), (3, 3, 24, '21.99'), (4, 4, 11, '121.99'), (5, 5, 43, '498.99'),
+(6, 6, 10, '321.99'), (7, 7, 111, '241.99'), (8, 8, 40, '32.99'), (9, 9, 61, '66.99'), (10, 10, 100, '98.99'),
+(11, 11, 56, '17.99'), (12, 12, 95, '33.99'), (13, 13, 24, '21.99'), (14, 14, 11, '121.99'), (15, 15, 43, '498.99'),
+(16, 16, 10, '321.99'), (17, 17, 111, '241.99'), (18, 18, 40, '32.99'), (19, 19, 61, '66.99'), (20, 20, 100, '98.99'),
+(21, 21, 56, '17.99'), (22, 22, 95, '33.99'), (23, 23, 24, '21.99'), (24, 24, 11, '121.99'), (25, 25, 43, '498.99'),
+(26, 26, 10, '321.99'), (27, 27, 111, '241.99'), (28, 28, 40, '32.99'), (29, 29, 61, '66.99'), (30, 30, 100, '98.99'),
+(31, 31, 56, '17.99'), (32, 32, 95, '33.99'), (33, 33, 24, '21.99'), (34, 34, 11, '121.99'), (35, 35, 43, '498.99'),
+(36, 36, 10, '321.99'), (37, 37, 111, '241.99'), (38, 38, 40</string>
+		<string>CREATE TABLE `inventories` (
+  `chair_id` int(5) NOT NULL,
+  `inventory_id` int(3) NOT NULL,
+  `on_hand` int(5) NOT NULL,
+  `cost` decimal(5,2) NOT NULL,
+  `date_added` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</string>
+		<string>ALTER TABLE `titles`
+  ADD PRIMARY KEY (`title_id`);
+INSERT INTO `titles` (`title_id`, `title`)
+VALUES (1, 'Mr'), (2, 'Mrs')</string>
+		<string>CREATE TABLE `titles` (
+  `title_id` int(2) NOT NULL,
+  `title` char(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</string>
+		<string>INSERT INTO `customers` (`cust_id`, `surname`, `firstname`, `title_id`, `address`, `phone`, `email`)
+VALUES (1, 'Abayie', 'Fredrick', 1, '1st University Avenue Berekuso', '0209339957', 'fredrick.abayie@ashesi.edu.gh'), (2, 'Asenso', 'Luciana', 2, '1st University Avenue Berekuso', '0254059957', 'fredrick.abayie@ashesi.edu.gh')</string>
+		<string>ALTER TABLE `customers`
+  ADD PRIMARY KEY (`cust_id`)</string>
+		<string>ALTER TABLE `customer`
+  ADD PRIMARY KEY (`cust_id`)</string>
+		<string>CREATE TABLE `customers` (
+  `cust_id` int(5) NOT NULL,
+  `surname` varchar(50) DEFAULT NULL,
+  `firstname` varchar(50) DEFAULT NULL,
+  `title_id` int(3) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</string>
+		<string>INSERT INTO `chairs` (`chair_id`, `chair_name`, `chair_type`, `year`, `manufacturer_id`, `description`, `image`)
+VALUES (1, 'Parsons', 4, 1997, 2, NULL, NULL), (2, 'Geo Brights Parsons', 4, 2000, 1, NULL, NULL), (3, 'Audrey', 4, 1999, 5, NULL, NULL), (4, 'Aprilia Parsons', 4, 1957, 2, NULL, NULL), (5, 'Bersum Dining', 4, 1894, 3, NULL, NULL), (6, 'Braeburn Parsons', 4, 2005, 1, NULL, NULL), (7, 'Winthrop Parsons', 4, 1943, 2, NULL, NULL), (8, 'Yates Tufted Side', 4, 2011, 5, NULL, NULL), (9, 'Republic Parsons', 4, 1999, 2, NULL, NULL), (10, 'Kinfine Classic Parsons', 4, 2002, 3, NULL, NULL),
+
+(11, 'Cassandra Side', 3, 1997, 2, NULL, NULL), (12, 'Azzo Shell Side', 3, 2000, 1, NULL, NULL), (13, 'Entreat Side', 3, 1999, 5, NULL, NULL), (14, 'Baxton Studio Birch Sapling', 3, 1957, 2, NULL, NULL), (15, 'Wise Side', 3, 1894, 3, NULL, NULL), (16, 'Marabella Side', 3, 2005, 1, NULL, NULL), (17, 'Banks Arm', 3, 1943, 2, NULL, NULL), (18, 'Path Side', 3, 2011, 5, NULL, NULL), (19, 'Mid Century Modern', 3, 1999, 2, NULL, NULL), (20, 'Louis Ghost Arm', 3, 2002, 3, NULL, NULL),
+
+(21, 'Stacking Side', 2, 1997, 2, NULL, NULL), (22, 'Durango Side', 2, 2000, 1, NULL, NULL), (23, 'Knunkle Stackable', 2, 1999, 5, NULL, NULL), (24, 'Bond Side', 2, 1957, 2, NULL, NULL), (25, 'Bistro Side', 2, 1894, 3, NULL, NULL), (26, 'Metropolis Side', 2, 2005, 1, NULL, NULL), (27, 'Oregon Side', 2, 1943, 2, NULL, NULL), (28, 'Industrial Side', 2, 2011, 5, NULL, NULL), (29, 'Bentley Side', 2, 1999, 2, NULL, NULL), (30, 'Leo Side', 2, 2002, 3, NULL, NULL),
+
+(31, 'Mestler Side', 1, 1997, 2, NULL, NULL), (32, 'Dempsey Side', 1, 2000, 1, NULL, NULL), (33, 'Bramblecrest Side', 1, 1999, 5, NULL, NULL), (34, 'Charlotte Side', 1, 1957, 2, NULL, NULL), (35, 'Sawyer', 1, 1894, 3, NULL, NULL), (36, 'Vintage', 1, 2005, 1, NULL, NULL), (37, 'Sally', 1, 1943, 2, NULL, NULL), (38, 'Andrews Arrow', 1, 2011, 5, NULL, NULL), (39, 'Simplicity', 1, 1999, 2, NULL, NULL), (40, 'Somerset', 1, 2002, 3, NULL, NULL)</string>
+		<string>INSERT INTO `chair_types` (`chair_type_id`, `chair_type`)
+VALUES (1, 'Wood'), (2, 'Metal'), (3, 'Plastic'), (4, 'Upholstered')</string>
+		<string>ALTER TABLE `regions`
+  ADD PRIMARY KEY (`region_id`),
+  ADD KEY `region` (`region_name`)</string>
+		<string>INSERT INTO `regions` (`region_id`, `region_name`) 
+VALUES (1, 'Eastern'), (2, 'Greater'), (3, 'Northern'), (4, 'Ashanti'), (5, 'Western')</string>
+		<string>CREATE TABLE `regions` (
+  `region_id` int(4) NOT NULL,
+  `region_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</string>
+		<string>ALTER TABLE `manufacturers`
+  ADD PRIMARY KEY (`manufacturer_id`),
+  ADD KEY `name` (`manufacturer_name`),
+  ADD KEY `region` (`region_id`)</string>
+		<string>ALTER TABLE `chair_types`
+  ADD PRIMARY KEY (`chair_type_id`)</string>
+		<string>ALTER TABLE `chairs`
+  ADD PRIMARY KEY (`chair_id`),
+  ADD KEY `name` (`chair_name`),
+  ADD KEY `winery` (`manufacturer_id`)</string>
+		<string>INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_name`, `region_id`)
+VALUES (1, 'Liberty Furniture', 2), (2, 'Modway', 5), (3, 'Ashley', 4), (4, 'Wildon', 3), (5, 'Hooker', 1)</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.5-10.1.10-MariaDB</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

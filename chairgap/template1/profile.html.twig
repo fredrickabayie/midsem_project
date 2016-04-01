@@ -1,0 +1,86 @@
+{% extends 'layout.html.twig' %}
+
+{% block SLIDER %}
+{% endblock %}
+
+{% block CATEGORIES %}
+
+	<h2>Profile</h2>
+	<div class="panel-group category-products" id="accordian">
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="active" href="../controllers/ChairController.php?cmd=12">
+						Edit Details
+					</a>
+				</h4>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a href="../controllers/ChairController.php?cmd=14">
+						Purchase History
+					</a>
+				</h4>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a href="../controllers/ChairController.php?cmd=7&action=logout">
+						Logout
+					</a>
+				</h4>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block MAIN %}
+
+
+	<div class="shopper-informations">
+		<div class="row" style="margin-bottom: 190px; margin-top: 50px">
+			<div class="col-sm-4">
+				<div class="shopper-info">
+					<form method="post" id="updateProfile"
+						  action="../controllers/ChairController.php?cmd=13">
+						<input type="text" name="cust_id" value="{{ customer['cust_id'] ? customer['cust_id'] : '' }}"
+							   placeholder="ID *" disabled>
+						<select name="title_id" style="margin-bottom: 10px; height: 40px">
+							<option value="3">-- title --</option>
+							<option value="1">Mr</option>
+							<option value="2">Mrs</option>
+						</select><br>
+						<input type="text" name="surname" value="{{ customer['surname'] ? customer['surname'] : '' }}"
+							   placeholder="Surname *" required>
+						<input type="text" name="firstname"
+							   value="{{ customer['firstname'] ? customer['firstname'] : '' }}"
+							   placeholder="firstname *" required>
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-4 clearfix">
+				<div class="shopper-info">
+					<form>
+						<input form="updateProfile" type="email" name="email"
+							   value="{{ customer['email'] ? customer['email'] : '' }}" placeholder="Email *" required>
+						<input form="updateProfile" type="tel" name="phone"
+							   value="{{ customer['phone'] ? customer['phone'] : '' }}" placeholder="Phone *" required>
+						<input form="updateProfile" type="text" name="address"
+							   value="{{ customer['address'] ? customer['address'] : '' }}" placeholder="Address *"
+							   required>
+						<input form="updateProfile" type="password" name="password"
+							   value="{{ customer['password'] ? customer['password'] : '' }}" placeholder="Password *"
+							   required>
+						<input type="submit" form="updateProfile" class="btn btn-primary" value="Update Profile">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

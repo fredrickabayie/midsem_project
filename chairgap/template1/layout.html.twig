@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'head.html.twig' %}
+</head>
+
+<body>
+<header id="header">
+    {% block HEADER %}
+        {% include 'header.html.twig' %}
+    {% endblock %}
+</header>
+
+{% block SLIDER %}
+    <section id="slider">
+
+        {% include 'slider.html.twig' %}
+
+    </section>
+{% endblock %}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    {% block CATEGORIES %}
+
+                        {% include 'categories.html.twig' %}
+
+                    {% endblock %}
+                </div>
+            </div>
+
+            {% block MAIN %}
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items">
+
+                        <h2 class="title text-center">Features Items</h2>
+
+                        {% block CONTENT %}
+
+                        {% endblock %}
+
+                        {% block PAGINATION %}
+
+                        {% endblock %}
+
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</section>
+
+{% block FOOTER %}
+    <footer id="footer">
+
+        {% include 'footer.html.twig' %}
+
+    </footer>
+{% endblock %}
+
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.scrollUp.min.js"></script>
+<script src="../assets/js/price-range.js"></script>
+<script src="../assets/js/jquery.prettyPhoto.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{% extends 'layout.html.twig' %}
+
+{% block SLIDER %}
+{% endblock %}
+
+{% block CATEGORIES %}
+
+    <h2>Profile</h2>
+    <div class="panel-group category-products" id="accordian">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="active" href="../controllers/ChairController.php?cmd=12">
+                        Edit Details
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="../controllers/ChairController.php?cmd=14">
+                        Purchase History
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="../controllers/ChairController.php?cmd=7&action=logout">
+                        Logout
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{#{% block MAIN %}#}
+
+    {% block CONTENT %}
+
+        <section id="cart_items">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="table-responsive cart_info">
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr class="cart_menu">
+                                    <td class="image">Item</td>
+                                    <td class="description">Description</td>
+                                    <td class="price">Order ID</td>
+                                    <td class="quantity">Quantity</td>
+                                    <td class="total">Price</td>
+                                    <td class="total">Date</td>
+                                    <td></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if chairHistory|length > 0 %}
+                                    {% for history in chairHistory %}
+                                        <tr>
+                                            <td class="">
+                                                <a href=""><img src="../assets/images/cart/one.png" alt=""></a>
+                                            </td>
+                                            <td class="">
+                                                <h4><a href="">{{ history['chair_name'] }}</a></h4>
+                                                <p>Web ID: {{ history['chair_id'] }}</p>
+                                            </td>
+                                            <td class="">
+                                                <p># {{ history['order_id'] }}</p>
+                                            </td>
+                                            <td class="">
+                                                <div class="">
+                                                    <p>{{ history['quantity'] }} Qty</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <p class="">$ {{ history['price'] }}</p>
+                                            </td>
+                                            <td class="">
+                                                <p class="">{{ history['date'] }}</p>
+                                                <i style="color: #FE980F" class="fa fa-check-circle fa-2x"></i>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td colspan="4">&nbsp;</td>
+                                        <td colspan="2">
+                                            <table class="table table-condensed total-result">
+                                                <tr>
+                                                    <td>Total Items</td>
+                                                    <td># {{ items }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total Price</td>
+                                                    <td><span>$ {{ totalCost }}</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                {% else %}
+
+                                    <tr>
+                                        <td class="cart_product">
+                                            {#<a href=""><img src="../assets/images/cart/one.png" alt=""></a>#}
+                                        </td>
+                                        <td class="cart_description">
+
+                                        </td>
+                                        <td class="cart_price">
+
+                                        </td>
+                                        <td class="cart_quantity">
+                                            Cart is Empty
+                                        </td>
+                                        <td class="cart_total">
+
+                                        </td>
+                                        <td class="cart_delete">
+
+                                        </td>
+                                    </tr>
+
+
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+{#{% endblock %}#}

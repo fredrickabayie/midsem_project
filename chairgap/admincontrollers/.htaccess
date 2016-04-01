@@ -1,0 +1,8 @@
+AuthName "Winestore Admin Access Control"
+AuthType Basic
+AuthUserFile /Users/fredrickabayie/temp/midsem/.htpasswd
+require user chairgap
+
+#Options -Indexes
+
+ErrorDocument 404 http://localhost/ecommerce/midsem_project/chairgap/controllers/ChairController.php?cmd=15

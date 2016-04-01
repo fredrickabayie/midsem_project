@@ -1,0 +1,126 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block SLIDER %}
+
+{% endblock %}
+
+{% block CATEGORIES %}
+
+{% endblock %}
+
+{% block MAIN %}
+	<section id="cart_items">
+		<div class="container">
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+					<tr class="cart_menu">
+						<td class="image">Item</td>
+						<td class="description"></td>
+						<td class="price">Price</td>
+						<td class="quantity">Quantity</td>
+						<td class="total">Total</td>
+						<td></td>
+					</tr>
+					</thead>
+					<tbody>
+
+					{% if carts|length > 0 %}
+						{% for cart in carts %}
+							<tr>
+								<td class="cart_product">
+									<a href=""><img src="../assets/images/cart/one.png" alt=""></a>
+								</td>
+								<td class="cart_description">
+									<h4><a href="">{{ cart['name'] }}</a></h4>
+									<p>Web ID: {{ cart['id'] }}</p>
+								</td>
+								<td class="cart_price">
+									<p>$ {{ cart['cost'] }}</p>
+								</td>
+								<td class="cart_quantity">
+									<div class="cart_quantity_button">
+										<form method="post"
+											  action="../controllers/ChairController.php?cmd=6&action=change&chair_id={{ cart['id'] }}&cart"
+											  enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
+											<input type="text" name="quantity" value="{{ cart['quantity'] }}" size="5">
+											<input type="submit" value="Change">
+											{#<a class="cart_quantity_down" href="">#}
+											{#<i class="fa fa-check fa-fw"></i>#}
+											{#</a>#}
+										</form>
+									</div>
+								</td>
+								<td class="cart_total">
+									<p class="cart_total_price">$ {{ cart['total'] }}</p>
+								</td>
+								<td class="cart_delete">
+									<a class="cart_quantity_delete"
+									   href="../controllers/ChairController.php?cmd=6&action=remove&chair_id={{ cart['id'] }}&cart">
+										<i class="fa fa-times"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+
+					{% else %}
+
+						<tr>
+							<td class="cart_product">
+								{#<a href=""><img src="../assets/images/cart/one.png" alt=""></a>#}
+							</td>
+							<td class="cart_description">
+
+							</td>
+							<td class="cart_price">
+
+							</td>
+							<td class="cart_quantity">
+								Cart is Empty
+							</td>
+							<td class="cart_total">
+
+							</td>
+							<td class="cart_delete">
+
+							</td>
+						</tr>
+
+					{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section id="do_action">
+		<div class="container">
+			<div class="heading">
+				<h3>What would you like to do next?</h3>
+				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your
+					delivery cost.</p>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="total_area">
+						<ul>
+							<li>Cart Sub Total <span>$ {{ totalCost }}</span></li>
+							<li>Item Discount <span>10%</span></li>
+							<li>Shipping Cost <span>Free</span></li>
+							<li>Total <span>$ {{ totalPercentage }}</span></li>
+						</ul>
+						<a class="btn btn-primary update {% if carts|length <= 0 %} disabled {% endif %}"
+						   href="../controllers/ChairController.php?cmd=6&action=empty&cart">
+							Empty
+						</a>
+						<a class="btn btn-primary check_out {% if carts|length <= 0 %} disabled {% endif %}"
+						   href="../controllers/ChairController.php?cmd=1&checkout">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'layout.html.twig' %}
+
+{% block SLIDER %}
+
+{% endblock %}
+
+{% block CONTENT %}
+
+	{% if chairs|length > 0 %}
+		{% for chair in chairs %}
+			<div class="col-sm-4">
+				<div class="product-image-wrapper">
+					<div class="single-products">
+						<div class="productinfo text-center">
+							<img src="../assets/images/home/product1.jpg" alt=""/>
+							<h2>&#163; {{ chair['cost'] }}</h2>
+							<p>{{ chair['chair_name'] }} <small>({{ chair['chair_type'] }})</small></p>
+							<a href="#" class="btn btn-default add-to-cart">
+								<i class="fa fa-search"></i>
+								View item
+							</a>
+						</div>
+					</div>
+					<div class="choose">
+						<ul class="nav nav-pills nav-justified">
+							<li>
+								<a href="../controllers/ChairController.php?cmd=6&action=add&chair_id={{ chair['chair_id'] }}&shop">
+									<i class="fa fa-shopping-cart"></i>
+									Add to cart
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	{% else %}
+		<div class="col-sm-4">
+			<div class="product-image-wrapper">
+				No Product Available
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}
+
+{% block PAGINATION %}
+
+	{% if totalPages > 0 %}
+		<ul class='pagination pagination-sm' id="pagination">
+			{% for i in 1..totalPages %}
+
+				{% if loop.first %}
+					{% if page == 1 %}
+						<li class="prev disabled">
+							<a>
+								<i class="fa fa-angle-double-left"></i>
+							</a>
+						</li>
+						<li class="prev disabled">
+							<a>
+								<i class="fa fa-angle-left"></i>
+							</a>
+						</li>
+					{% else %}
+						<li class="prev">
+							<a href='../controllers/ChairController.php?cmd=1&page={{ 1 }}&shop'>
+								<i class="fa fa-angle-double-left"></i>
+							</a>
+						</li>
+						<li class="prev">
+							<a href='../controllers/ChairController.php?cmd=1&page={{ page - 1 }}&shop'>
+								<i class="fa fa-angle-left"></i>
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+
+
+				{#{% for i in page..page + 6 %}#}
+				{% if i >= 1 and i <= totalPages %}
+					<li {% if i == page %} class="active" {% endif %}>
+						<a href='../controllers/ChairController.php?cmd=1&page={{ i }}&shop'>
+							{{ i }}
+						</a>
+					</li>
+				{% endif %}
+				{#{% endfor %}#}
+
+
+				{% if loop.last %}
+					{% if page == totalPages %}
+						<li class="next disabled">
+							<a>
+								<i class="fa fa-angle-right"></i>
+							</a>
+						</li>
+						<li class="next disabled">
+							<a>
+								<i class="fa fa-angle-double-right"></i>
+							</a>
+						</li>
+					{% else %}
+
+						<li class="next">
+							<a href='../controllers/ChairController.php?cmd=1&page={{ page + 1 }}&shop'>
+								<i class="fa fa-angle-right"></i>
+							</a>
+						</li>
+						<li class="next">
+							<a href='../controllers/ChairController.php?cmd=1&page={{ totalPages }}&shop'>
+								<i class="fa fa-angle-double-right"></i>
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock %}

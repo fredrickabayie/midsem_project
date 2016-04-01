@@ -1,0 +1,175 @@
+{% extends 'layout.html.twig' %}
+
+{% block SLIDER %}
+{% endblock %}
+
+{% block CATEGORIES %}
+{% endblock %}
+
+
+{% block MAIN %}
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="step-one">
+				<h3 class="heading">
+					Step 1 - <span style="font-size: 15px">Payment Method</span>
+				</h3>
+			</div>
+			<div class="checkout-options">
+				<ul class="nav">
+					<li>
+						<label>
+							<i class="fa fa-check"></i>
+							On Delivery
+						</label>
+					</li>
+				</ul>
+			</div>
+
+			<div class="step-one">
+				<h3 class="heading">
+					Step 2 - <span style="font-size: 15px">Shipping Information</span>
+				</h3>
+			</div>
+
+			<div class="shopper-informations">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="shopper-info">
+							<form method="post" id="checkout"
+								  action="../controllers/ChairController.php?cmd=8"
+								  enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
+								<input type="text" {% if carts|length <= 0 %} disabled {% endif %} name="instructions" placeholder="Shipping Address" required>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="step-one">
+				<h3 class="heading">
+					Step 3 - <span style="font-size: 15px">Items Review</span>
+				</h3>
+			</div>
+
+			<div class="row">
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed">
+						<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+						</thead>
+						<tbody>
+
+						{% if carts|length > 0 %}
+							{% for cart in carts %}
+								<tr>
+									<td class="cart_product">
+										<a href=""><img src="../assets/images/cart/one.png" alt=""></a>
+									</td>
+									<td class="cart_description">
+										<h4><a href="">{{ cart['name'] }}</a></h4>
+										<p>Web ID: {{ cart['id'] }}</p>
+									</td>
+									<td class="cart_price">
+										<p>$ {{ cart['cost'] }}</p>
+									</td>
+									<td class="cart_quantity">
+										<div class="cart_quantity_button">
+											<p>{{ cart['quantity'] }} Qty</p>
+										</div>
+									</td>
+									<td class="cart_total">
+										<p class="cart_total_price">$ {{ cart['total'] }}</p>
+									</td>
+									<td class="cart_delete">
+										<i style="color: #FE980F" class="fa fa-check-circle fa-2x"></i>
+									</td>
+								</tr>
+							{% endfor %}
+							<tr>
+								<td colspan="4">&nbsp;</td>
+								<td colspan="2">
+									<table class="table table-condensed total-result">
+										<tr>
+											<td>Cart Sub Total</td>
+											<td>$ {{ totalCost }}</td>
+										</tr>
+										<tr>
+											<td>Item Discount</td>
+											<td>10%</td>
+										</tr>
+										<tr class="shipping-cost">
+											<td>Shipping Cost</td>
+											<td>Free</td>
+										</tr>
+										<tr>
+											<td>Total</td>
+											<td><span>$ {{ totalPercentage }}</span></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
+						{% else %}
+
+							<tr>
+								<td class="cart_product">
+									{#<a href=""><img src="../assets/images/cart/one.png" alt=""></a>#}
+								</td>
+								<td class="cart_description">
+
+								</td>
+								<td class="cart_price">
+
+								</td>
+								<td class="cart_quantity">
+									Cart is Empty
+								</td>
+								<td class="cart_total">
+
+								</td>
+								<td class="cart_delete">
+
+								</td>
+							</tr>
+
+
+						{% endif %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="step-one">
+				<h3 class="heading">
+					Step 4 - <span style="font-size: 15px">Confirmation</span>
+				</h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="shopper-info">
+						<a class="btn btn-primary {% if carts|length <= 0 %} disabled {% endif %}" target="_blank" href="../controllers/ChairController.php?cmd=9">Generate PDF</a>
+						<input type="submit" class="btn btn-primary {% if carts|length <= 0 %} disabled {% endif %}" form="checkout" value="Place Order">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="register-req">
+					<p>By clicking on Order you agree to the terms and conditions that apply.</p>
+				</div><!--/register-req-->
+			</div>
+			<div class="clearfix"></div>
+			<br><br><br><br><br>
+
+		</div>
+	</section>
+
+{% endblock %}

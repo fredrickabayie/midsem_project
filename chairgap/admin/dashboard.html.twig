@@ -1,0 +1,113 @@
+{% extends 'layout.html.twig' %}
+
+{% block SLIDER %}
+{% endblock %}
+
+{% block HEADER %}
+{% endblock %}
+
+{% block CONTENTTITLE %}
+    Orders
+{% endblock %}
+
+{% block CONTENT %}
+
+    <section id="cart_items">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="table-responsive cart_info">
+                        <table class="table table-condensed">
+                            <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Item</td>
+                                <td class="description">Cust Details</td>
+                                <td class="price">Order ID</td>
+                                <td class="total">Price</td>
+                                <td class="total">Date</td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% if orders|length > 0 %}
+                                {% for order in orders %}
+                                    <tr>
+                                        <td class="">
+                                            <a href="">
+                                                <img src="../assets/images/cart/one.png" alt=""></a>
+                                        </td>
+                                        <td class="">
+                                            <h4><a href="">{{ order['surname'] }} {{ order['firstname'] }}</a></h4>
+                                            <p>{{ order['email'] }}</p>
+                                            <p>{{ order['instructions'] }}</p>
+                                        </td>
+                                        <td class="">
+                                            <p># {{ order['order_id'] }}</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="">$ {{ order['amount'] }}</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="">{{ order['date'] }}</p>
+                                            <a href="../admincontrollers/AdminController.php?cmd=4&cust_email={{ order['email'] }}&order_id={{ order['order_id'] }}&amount={{ order['amount'] }}">
+                                                <i class="fa fa-check-circle fa-2x"></i> Pay
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td colspan="4">&nbsp;</td>
+                                    <td colspan="2">
+                                        <table class="table table-condensed total-result">
+                                            <tr>
+                                                <td>Total Items</td>
+                                                <td># {{ items }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Price</td>
+                                                <td><span>$ {{ totalCost }}</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            {% else %}
+
+                                <tr>
+                                    <td class="cart_product">
+                                        <a href="">
+                                            <img src="../assets/images/cart/one.png" alt="">
+                                        </a>
+                                    </td>
+                                    <td class="cart_description">
+
+                                    </td>
+                                    <td class="cart_price">
+
+                                    </td>
+                                    <td class="cart_quantity">
+                                        Orders empty
+                                    </td>
+                                    <td class="cart_total">
+
+                                    </td>
+                                    <td class="cart_delete">
+
+                                    </td>
+                                </tr>
+
+
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block FOOTER %}
+{% endblock %}

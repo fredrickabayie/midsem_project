@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block CATEGORIES %}
+{% endblock %}
+
+{% block SLIDER %}
+{% endblock %}
+
+{% block MAIN %}
+	<div class="row">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				Order Confirmation
+			</div>
+			<div class="panel-body">
+				The transaction details has been sent to your email
+				<i class="fa fa-envelope-o"> {{ customer['email'] }}</i>.
+				Thank you for shopping with us. "Woy3 guy wate".
+			</div>
+		</div>
+	</div>
+{% endblock %}

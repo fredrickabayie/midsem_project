@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block CONTENT %}
+
+	{% if chairs|length > 0 %}
+		{% for chair in chairs %}
+			<div class="col-sm-4">
+				<div class="product-image-wrapper">
+					<div class="single-products">
+						<div class="productinfo text-center">
+							<img src="../assets/images/home/product1.jpg" alt=""/>
+							<h2>&#163; {{ chair['cost'] }}</h2>
+							<p>{{ chair['chair_name'] }}</p>
+							<a href="#" class="btn btn-default add-to-cart">
+								<i class="fa fa-search"></i>
+								View item
+							</a>
+						</div>
+					</div>
+					<div class="choose">
+						<ul class="nav nav-pills nav-justified">
+							<li>
+								<a href="../controllers/ChairController.php?cmd=6&action=add&chair_id={{ chair['chair_id'] }}&shop">
+									<i class="fa fa-shopping-cart"></i>
+									Add to cart
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	{% else %}
+		<div class="col-sm-4">
+			<div class="product-image-wrapper">
+				No Product Available
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,4 @@
+#IndexIgnore *.
+Options -Indexes
+
+ErrorDocument 404 http://localhost/ecommerce/midsem_project/chairgap/controllers/ChairController.php?cmd=15

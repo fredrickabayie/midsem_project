@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "1.6.5",
+    "phpmailer/phpmailer": "v5.2.14",
+    "setasign/fpdf": "1.8.1"
+  }
+}
